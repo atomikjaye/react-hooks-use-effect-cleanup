@@ -10,6 +10,8 @@ function Clock() {
     return function cleanup() {
       // the works because we change state when we toggle the clock, causing
       // the function to be run again
+      // returns AFTER it rerenders
+      //render -> useEffect -> setState -> re-render -> cleanup -> useEffect
       console.log("cleaned")
       clearInterval(timerID)
     }
